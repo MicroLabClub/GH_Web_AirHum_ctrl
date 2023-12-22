@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/ec189b28-a323-4c35-a40a-9a5c7f6377a2/resourceGroups/UTM-Platform/providers/Microsoft.Web/sites/utm-platform-server",
+    "appService.deploySubpath": "node-api"
+}
