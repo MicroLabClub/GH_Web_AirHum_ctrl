@@ -72,7 +72,7 @@ const projectHumidity = () => {
             let publishSettings = JSON.stringify({ 'set_point': settingsTempTime });
             console.log(publishSettings);
 
-            let result = client.publish('microlab/agro/green_house/air_hum_ctrl', publishSettings);
+            let result = client.publish('microlab/agro/green_house/air_hum_ctrl/set', publishSettings);
             console.log(result);
         } catch (error) {
             console.error(error);
@@ -92,7 +92,7 @@ const projectHumidity = () => {
 
     const [temperature, setTemp] = useState(0);
 
-    const tempTopic = 'microlab/agro/green_house/air_hum_ctrl';
+    const tempTopic = 'microlab/agro/green_house/air_hum_ctrl/set';
 
 
     const mqttConnect = () => {
@@ -139,7 +139,7 @@ const projectHumidity = () => {
                 value: "1",
             };
 
-            const topic = "microlab/agro/green_house/air_hum_ctrl";
+            const topic = "microlab/agro/green_house/air_hum_ctrl/set";
 
             if (client) {
 
@@ -167,7 +167,7 @@ const projectHumidity = () => {
                 value: "0",
             };
 
-            const topic = "microlab/agro/green_house/air_hum_ctrl";
+            const topic = "microlab/agro/green_house/air_hum_ctrl/set";
 
             if (client) {
 
@@ -194,7 +194,7 @@ const projectHumidity = () => {
                 value: String(parseFloat(setPoint)),
             };
 
-            const topic = "microlab/agro/green_house/air_hum_ctrl";
+            const topic = "microlab/agro/green_house/air_hum_ctrl/set";
 
             if (client) {
 
@@ -221,7 +221,7 @@ const projectHumidity = () => {
                 value: "1",
             };
 
-            const topic = "microlab/agro/green_house/air_hum_ctrl";
+            const topic = "microlab/agro/green_house/air_hum_ctrl/set";
 
             if (client) {
 
@@ -249,7 +249,7 @@ const projectHumidity = () => {
                 value: "0",
             };
 
-            const topic = "microlab/agro/green_house/air_hum_ctrl";
+            const topic = "microlab/agro/green_house/air_hum_ctrl/set";
 
             if (client) {
 
