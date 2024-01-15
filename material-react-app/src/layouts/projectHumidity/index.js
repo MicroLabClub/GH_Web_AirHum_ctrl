@@ -19,14 +19,10 @@ import {host, options} from "../../config/mqtt.config";
 import MDTypography from "components/MDTypography";
 import {defined} from "chart.js/helpers";
 
-// let stpoint = 0;
-// console.log(stpoint);
 const projectHumidity = () => {
 
     const [messages, setMessages] = useState({});
     const [count, setCount] = useState(4);
-
-    // console.log(messages);
 
     async function getMessages() {
         try {
@@ -37,25 +33,15 @@ const projectHumidity = () => {
             let result = response.data;
             console.log(result.length);
 
-            let shortResult = result.splice(result.length - 50, result.length);
-            // stpoint = shortResult.map(x => JSON.parse(x.message).set_point);
-            // console.log(stpoint)
-            // console.log("<<<<<<")
+            let shortResult = result.slice(-50);
 
             setMessages({
                 labels: shortResult.map(x=> x.message_id),
                 datasets:
-                    // [
                     {
                         label: "cur_hum",
                         data: shortResult.map(x => JSON.parse(x.message).cur_hum),
                     }
-                    // ,
-                    // {
-                    //     label: "set_point",
-                    //     data: shortResult.map(x => JSON.parse(x.message).set_point),
-                    // },
-                    // ]
             });
 
             const resp = shortResult.map(x=> JSON.parse(x.message).cur_hum);
@@ -78,8 +64,8 @@ const projectHumidity = () => {
 
     /*   Set Data */
     //const [settings, setSettings] = useState(null);
-    const [settingsTempTime, setSettingsTempTime] = useState(34);
-    const [setPoint, setPointSettings] = useState(34);
+    const [settingsTempTime, setSettingsTempTime] = useState(60);
+    const [setPoint, setPointSettings] = useState(60);
 
     function setMqttData() {
         try {
@@ -99,11 +85,6 @@ const projectHumidity = () => {
 
 
     };
-    // const changeHandler = (e) => {
-    //   setSettings(e.target.value);
-    // };
-
-
 
     /* MQTT */
     const [client, setClient] = useState(null);
